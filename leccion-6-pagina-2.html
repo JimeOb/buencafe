@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html class="nojs html" lang="es-ES">
+ <head>
+
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2018.1.0.386"/>
+  
+  <script type="text/javascript">
+   // Update the 'nojs'/'js' class on the html node
+document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
+
+// Check that all required assets are uploaded and up-to-date
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.watch.js", "jquery.scrolleffects.js", "require.js", "leccion-6-pagina-2.css"], "outOfDate":[]};
+</script>
+  
+  <link rel="shortcut icon" href="images/favicon.ico?crc=4209280601"/>
+  <title>Actividad - Lección 6</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=444006867"/>
+  <link rel="stylesheet" type="text/css" href="css/master_b-p_g_-maestra.css?crc=3921179497"/>
+  <link rel="stylesheet" type="text/css" href="css/leccion-6-pagina-2.css?crc=4236456014" id="pagesheet"/>
+  <link rel="stylesheet" type="text/css" href="actividades/actividades.css"/>
+
+  <script type="text/javascript" src="actividades/jquery.min.js"></script> 
+
+  <style type="text/css">
+      
+      .recipiente {
+        display: inline-block;
+        width: 130px;
+        height: 130px;
+        cursor: pointer;
+        border:2px solid transparent;
+        background-repeat: no-repeat;
+        background-size: 120px;
+        background-position: center;
+        position: absolute;
+        bottom: 0;
+      }
+      .recipiente:hover {
+        /*border:2px solid #333333;*/
+        background-color: #c8c8c8;
+      }
+      .recipiente.activo {
+        border:2px solid #333333; 
+      }
+      .recipiente_equivocado {
+
+        -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 0.6s; /* Safari 4.0 - 8.0 */
+        animation-name: example;
+        animation-duration: 0.6s;
+      }
+
+      .t1 {
+        left: 0;
+        background-image: url(actividades/reciclaje/t1.png);
+      }
+
+      .t2 {
+        left: 140px;
+        background-image: url(actividades/reciclaje/t2.png);
+      }
+
+      .t3 {
+        left: 280px;
+        background-image: url(actividades/reciclaje/t3.png);
+      }
+
+      .t4 {
+        left: 420px;
+        background-image: url(actividades/reciclaje/t4.png);
+      }
+
+      .t5 {
+        left: 560px;
+        background-image: url(actividades/reciclaje/t5.png);
+      }
+
+      .t6 {
+        left: 700px;
+        background-image: url(actividades/reciclaje/t6.png);
+      }
+
+      .residuo {
+        cursor: pointer;
+        position: absolute;
+        width: auto;
+        height: auto;
+        transition: all 0.6s ease-in-out;
+        /*
+        width: 30px;
+        height: 30px;
+        */
+      }
+      .residuo:hover img {
+        border:2px solid #333333;
+      }
+      .residuo.activo {
+      }
+      .residuo.activo img {
+        border:2px solid #77bc1f;
+        -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+      }
+      .residuo img {
+        display: inline-block;
+        padding:5px;
+        width: auto;
+        max-width: 50px;
+        max-height: 50px;
+
+        border:2px solid transparent;
+        -webkit-transform: none;
+                transform: none;
+        -webkit-transition: all 0.1s ease-in-out;
+                transition: all 0.1s ease-in-out;
+      }
+
+
+      /* Safari 4.0 - 8.0 */
+      @-webkit-keyframes example {
+        from {background-color: transparent;}
+        to {background-color: red;}
+      }
+
+      /* Standard syntax */
+      @keyframes example {
+        from {background-color: transparent;}
+        to {background-color: red;}
+      }
+
+
+      .instrucciones {
+
+        list-style-type: decimal !important;
+        list-style: decimal !important;
+      }
+
+      .instrucciones ol li {
+        font-size: 18px;
+        font-weight: bold;
+        color:#363636;
+        margin-bottom: 9px;
+        display: list-item;
+        list-style: decimal !important;
+      }
+
+
+    </style>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        $(".recipiente").click(function() {
+          
+          var idRecipienteSeleccionado = $(this).attr('id');
+          var nombreRecipiente = $(this).data('recipiente');
+
+          /*
+          resetSeleccionRecipientes();
+
+          $(this).addClass('activo');
+          */
+
+          if (idResiduo&&idRecipiente)
+          {
+            if (idRecipiente==idRecipienteSeleccionado)
+            {
+              tx = $(this).css('top');
+              ty = $(this).css('left');
+              
+              $("#"+idResiduo).css('top',tx);
+              $("#"+idResiduo).css('left',ty).delay(500).queue(function(next){
+                  $("#"+idResiduo).remove().queue(function(next) {
+
+                    if ($(".residuo").length==0)
+                    {
+                      $("#continuarleccion").addClass('popupvisible');
+                      setTimeout(function(){ $("#continuarleccion").removeClass('popupvisible'); }, 2300);
+                    }
+
+                  });
+                  next();
+              });
+
+              
+              
+
+              //$("#"+idResiduo).remove();
+            }
+            else
+            {
+              //$(this).toggleClass('recipiente_equivocado');
+              $(this).addClass("recipiente_equivocado").delay(1000).queue(function(next){
+                  $(this).removeClass("recipiente_equivocado");
+                  next();
+              });
+            }
+          }
+          else 
+          {
+            alert("Debes seleccionar un residuo");
+          }
+
+        });
+
+        var idResiduo = "";
+        var idRecipiente = "";
+
+        $(".residuo").click(function() {
+          idResiduo = $(this).attr('id');
+          idRecipiente = $(this).data('recipiente');
+
+          resetSeleccionResiduos();
+
+          $(this).addClass('activo');
+        });
+
+        $(".residuo").each(function() {
+          var coords = ubicacionRandom();
+          $(this).css('top',coords.y+'px');
+          $(this).css('left',coords.x+'px');
+        });
+      });
+
+      function resetSeleccionRecipientes()
+      {
+        $(".recipiente").each(function() {
+          $(this).removeClass('activo');
+        });
+      }
+
+      function resetSeleccionResiduos()
+      {
+        $(".residuo").each(function() {
+          $(this).removeClass('activo');
+        });
+        $(".recipiente").each(function() {
+          $(this).removeClass('activo');
+        });
+      }
+
+
+      function generarRandom(min, max)
+      {
+        /*var min=4; 
+        var max=5;  */
+        var random =Math.floor(Math.random() * (+max - +min)) + +min; 
+        return random;
+      }
+
+      function ubicacionRandom()
+      {
+        var stepx = 50;
+        var stepy = 50;
+        var randx = generarRandom(0,16);
+        var randy = generarRandom(4,7);
+        var x = randx*stepx;
+        var y = randy*stepy;
+
+        var coords = { x:x,y:y};
+
+        return coords;
+      }
+
+      function showUbicacion()
+      {
+        var coords = ubicacionRandom();
+        alert(coords.x+", "+ coords.y);
+      }
+        
+    </script>
+
+   </head>
+ <body>
+
+  <div class="popupbg" id="continuarleccion">
+    <div class="popupcontainer">
+      <img src="actividades/conf1.png">
+    </div>
+  </div>
+
+  <div class="popupbg" id="volver">
+    <div class="popupcontainer">
+      <img src="actividades/conf3.png">
+    </div>
+  </div>
+
+  <div class="contenido-actividad" style="height: 550px; position: relative;"><!-- rasterized frame -->
+
+    <h1 class="titulo-actividad">Reciclaje</h1>
+
+    <div class="instrucciones">
+      <ol>
+        <li>Haz click sobre el residuo para quede seleccionado.</li>
+        <li>Selecciona el recipiente en el que debes arrojarlo (el residuo desaparece si lo arrojas en el recipiente correcto).</li>
+        <li>Repite los pasos 1 y 2 hasta terminar de arrojar todos los residuos.</li>
+      </ol>
+    </div>
+
+    <!-- recipientes -->
+
+    <div class="recipiente t1" id="t1" data-recipiente="tarro 1">
+    </div>
+
+    <div class="recipiente t2" id="t2" data-recipiente="tarro 2">
+    </div>
+
+    <div class="recipiente t3" id="t3" data-recipiente="tarro 3">
+    </div>
+
+    <div class="recipiente t4" id="t4" data-recipiente="tarro 4">
+    </div>
+
+    <div class="recipiente t5" id="t5" data-recipiente="tarro 5">
+    </div>
+
+    <div class="recipiente t6" id="t6" data-recipiente="tarro 6">
+    </div>
+
+
+    <!-- residuos biológicos -->
+
+    <div class="residuo e1" id="e1" data-recipiente="t6">
+      <img src="actividades/reciclaje/biologicos/r1.png">
+    </div>
+
+    <div class="residuo e2" id="e2" data-recipiente="t6">
+      <img src="actividades/reciclaje/biologicos/r2.png">
+    </div>
+
+    <div class="residuo e3" id="e3" data-recipiente="t6">
+      <img src="actividades/reciclaje/biologicos/r3.png">
+    </div>
+
+    <div class="residuo e4" id="e4" data-recipiente="t6">
+      <img src="actividades/reciclaje/biologicos/r4.png">
+    </div>
+
+
+    <!-- residuos biológicos -->
+
+    <div class="residuo e5" id="e5" data-recipiente="t4">
+      <img src="actividades/reciclaje/ordinarios/r1.png">
+    </div>
+
+    <div class="residuo e6" id="e6" data-recipiente="t4">
+      <img src="actividades/reciclaje/ordinarios/r2.png">
+    </div>
+
+    <div class="residuo e7" id="e7" data-recipiente="t4">
+      <img src="actividades/reciclaje/ordinarios/r3.png">
+    </div>
+
+    <div class="residuo e8" id="e8" data-recipiente="t4">
+      <img src="actividades/reciclaje/ordinarios/r4.png">
+    </div>
+
+    <!--
+    <div class="residuo e9" id="e9" data-recipiente="t4">
+      <img src="actividades/reciclaje/ordinarios/r5.png">
+    </div>
+    -->
+
+
+    <!-- residuos orgánicos -->
+
+    <div class="residuo e10" id="e10" data-recipiente="t5">
+      <img src="actividades/reciclaje/organicos/r1.png">
+    </div>
+
+    <div class="residuo e11" id="e11" data-recipiente="t5">
+      <img src="actividades/reciclaje/organicos/r2.png">
+    </div>
+
+    <div class="residuo e12" id="e12" data-recipiente="t5">
+      <img src="actividades/reciclaje/organicos/r3.png">
+    </div>
+
+    <div class="residuo e13" id="e13" data-recipiente="t5">
+      <img src="actividades/reciclaje/organicos/r4.png">
+    </div>
+
+
+    <!-- residuos papel -->
+
+    <div class="residuo e14" id="e14" data-recipiente="t2">
+      <img src="actividades/reciclaje/papel/r1.png">
+    </div>
+
+    <div class="residuo e15" id="e15" data-recipiente="t2">
+      <img src="actividades/reciclaje/papel/r2.png">
+    </div>
+
+    <div class="residuo e16" id="e16" data-recipiente="t2">
+      <img src="actividades/reciclaje/papel/r3.png">
+    </div>
+
+    <div class="residuo e17" id="e17" data-recipiente="t2">
+      <img src="actividades/reciclaje/papel/r4.png">
+    </div>
+
+
+
+    <!-- residuos plastico -->
+
+    <div class="residuo e18" id="e18" data-recipiente="t3">
+      <img src="actividades/reciclaje/plastico/r1.png">
+    </div>
+
+    <div class="residuo e19" id="e19" data-recipiente="t3">
+      <img src="actividades/reciclaje/plastico/r2.png">
+    </div>
+
+    <div class="residuo e20" id="e20" data-recipiente="t3">
+      <img src="actividades/reciclaje/plastico/r3.png">
+    </div>
+
+    <!--
+    <div class="residuo e21" id="e21" data-recipiente="t3">
+      <img src="actividades/reciclaje/plastico/r4.png">
+    </div>
+    -->
+
+
+
+    <!-- residuos vidrio -->
+
+    <div class="residuo e22" id="e22" data-recipiente="t1">
+      <img src="actividades/reciclaje/vidrio/r1.png">
+    </div>
+
+    <div class="residuo e23" id="e23" data-recipiente="t1">
+      <img src="actividades/reciclaje/vidrio/r2.png">
+    </div>
+
+    <div class="residuo e24" id="e24" data-recipiente="t1">
+      <img src="actividades/reciclaje/vidrio/r3.png">
+    </div>
+
+    <div class="residuo e25" id="e25" data-recipiente="t1">
+      <img src="actividades/reciclaje/vidrio/r4.png">
+    </div>
+
+    <div class="residuo e26" id="e26" data-recipiente="t1">
+      <img src="actividades/reciclaje/vidrio/r5.png">
+    </div>
+
+    <div class="residuo e27" id="e27" data-recipiente="t1">
+      <img src="actividades/reciclaje/vidrio/r6.png">
+    </div>
+
+  </div>
+
+  <div class="clearfix" id="page"><!-- group -->
+   <div class="clearfix grpelem" id="pu8542"><!-- group -->
+    <div class="browser_width" id="u8542-bw">
+     <div id="u8542"><!-- simple frame --></div>
+    </div>
+    <img id="u8543-4" alt="ACTIVIDAD LECCIÓN 6" width="579" height="60" src="images/u8543-4.png?crc=409491137"/><!-- rasterized frame -->
+    <img id="u8544-4" alt="Programa de Limpieza y desinfección" width="541" height="27" src="images/u8544-4.png?crc=4200092207"/><!-- rasterized frame -->
+    <div class="browser_width" id="u1346-bw">
+     <div id="u1346"><!-- simple frame --></div>
+    </div>
+    <a class="nonblock nontext clip_frame" id="u1347" href="index.html"><!-- image --><img class="block" id="u1347_img" src="images/logo-header.png?crc=4287049649" alt="" width="121" height="37"/></a>
+   </div>
+   <div class="clearfix grpelem" id="pppu1349"><!-- column -->
+    <div class="clearfix colelem" id="ppu1349"><!-- group -->
+     <a class="nonblock nontext" id="u1349" href="index.html"><!-- state-based BG images --><img id="u1349_states" alt="Inicio" src="images/blank.gif?crc=4208392903"/></a>
+     <a class="nonblock nontext" id="u1350" href="modulos.html"><!-- state-based BG images --><img id="u1350_states" alt="Módulos" src="images/blank.gif?crc=4208392903"/></a>
+    </div>
+
+    <!--
+    <img class="ose_pre_init colelem" id="u8552-4" alt="Completa las frases con la opción correcta" width="894" height="42" src="images/u8552-4.png?crc=511965983"/>
+    <div class="clearfix colelem" id="pu8551">
+     <div class="grpelem" id="u8551"></div>
+     <div class="grpelem" id="u8555-4" data-mu-ie-matrix="progid:DXImageTransform.Microsoft.Matrix(M11=0.9205,M12=0.3907,M21=-0.3907,M22=0.9205,SizingMethod='auto expand')" data-mu-ie-matrix-dx="-20" data-mu-ie-matrix-dy="-113"><
+      <img id="u8555-4_img" alt="IMAGEN DE REFERENCIA" width="626" height="232" src="images/u8555-4.png?crc=4226278382"/>
+     </div>
+    </div>
+    -->
+
+    <a class="nonblock nontext colelem" id="u8553" href="modulo-1.html#lecciones" style="margin-top: 160px;"><!-- state-based BG images --><img id="u8553_states" alt="Ver más lecciones" src="images/blank.gif?crc=4208392903"/></a>
+    <div class="colelem" id="u8554"><!-- simple frame --></div>
+    <div class="browser_width colelem" id="u1362-bw">
+     <div id="u1362"><!-- group -->
+      <div class="clearfix" id="u1362_align_to_page">
+       <a class="nonblock nontext clip_frame grpelem" id="u1363" href="index.html"><!-- image --><img class="block" id="u1363_img" src="images/logo-header.png?crc=4287049649" alt="" width="110" height="34"/></a>
+       <div class="grpelem" id="u1367"><!-- simple frame --></div>
+       <img class="grpelem" id="u9396-4" alt="CURSO VIRTUAL DE BUENAS PRÁCTICAS DE MANUFACTURA (BPM) E INOCUIDAD" width="426" height="32" src="images/u9396-4.png?crc=276274111"/><!-- rasterized frame -->
+       <img class="grpelem" id="u9212-6" alt="Elaborado por BW agencia digital" width="99" height="27" src="images/u9212-6.png?crc=299181344"/><!-- rasterized frame -->
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="preload_images">
+   <img class="preload" src="images/u1349_states-r.png?crc=4181773096" alt=""/>
+   <img class="preload" src="images/u1349_states-a.png?crc=426512644" alt=""/>
+   <img class="preload" src="images/u1350_states-r.png?crc=3965337562" alt=""/>
+   <img class="preload" src="images/u1350_states-a.png?crc=3848403389" alt=""/>
+   <img class="preload" src="images/u8553_states-r.png?crc=383879702" alt=""/>
+  </div>
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   // Decide whether to suppress missing file error or not based on preference setting
+var suppressMissingFileError = false
+</script>
+  <script type="text/javascript">
+   window.Muse.assets.check=function(c){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},d=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
+16);return 0},f=function(f){for(var g=document.getElementsByTagName("link"),j=0;j<g.length;j++)if("text/css"==g[j].type){var l=(g[j].href||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);if(!l||!l[1]||!l[2])break;b[l[1]]=l[2]}g=document.createElement("div");g.className="version";g.style.cssText="display:none; width:1px; height:1px;";document.getElementsByTagName("body")[0].appendChild(g);for(j=0;j<Muse.assets.required.length;){var l=Muse.assets.required[j],k=l.match(/([\w\-\.]+)\.(\w+)$/),i=k&&k[1]?
+k[1]:null,k=k&&k[2]?k[2]:null;switch(k.toLowerCase()){case "css":i=i.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");g.className+=" "+i;i=a(d(g,"color"));k=a(d(g,"backgroundColor"));i!=0||k!=0?(Muse.assets.required.splice(j,1),"undefined"!=typeof b[l]&&(i!=b[l]>>>24||k!=(b[l]&16777215))&&Muse.assets.outOfDate.push(l)):j++;g.className="version";break;case "js":j++;break;default:throw Error("Unsupported file type: "+k);}}c?c().jquery!="1.8.3"&&Muse.assets.outOfDate.push("jquery-1.8.3.min.js"):Muse.assets.required.push("jquery-1.8.3.min.js");
+g.parentNode.removeChild(g);if(Muse.assets.outOfDate.length||Muse.assets.required.length)g="Puede que determinados archivos falten en el servidor o sean incorrectos. Limpie la cache del navegador e inténtelo de nuevo. Si el problema persiste, póngase en contacto con el administrador del sitio web.",f&&Muse.assets.outOfDate.length&&(g+="\nOut of date: "+Muse.assets.outOfDate.join(",")),f&&Muse.assets.required.length&&(g+="\nMissing: "+Muse.assets.required.join(",")),suppressMissingFileError?(g+="\nUse SuppressMissingFileError key in AppPrefs.xml to show missing file error pop up.",console.log(g)):alert(g)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?
+setTimeout(function(){f(!0)},5E3):f()}};
+var muse_init=function(){require.config({baseUrl:""});require(["jquery","museutils","whatinput","jquery.watch","jquery.scrolleffects"],function(c){var $ = c;$(document).ready(function(){try{
+window.Muse.assets.check($);/* body */
+Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
+Muse.Utils.prepHyperlinks(true);/* body */
+Muse.Utils.resizeHeight('.browser_width');/* resize height */
+Muse.Utils.requestAnimationFrame(function() { $('body').addClass('initialized'); });/* mark body as initialized */
+Muse.Utils.makeButtonsVisibleAfterSettingMinWidth();/* body */
+$('#u8552-4').registerOpacityScrollEffect([{"in":[-Infinity,-307.25],"opacity":0,"fade":50},{"opacity":100,"in":[-307.25,-307.25]},{"in":[-307.25,Infinity],"opacity":100,"fade":50}]);/* scroll effect */
+Muse.Utils.showWidgetsWhenReady();/* body */
+Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
+}catch(b){if(b&&"function"==typeof b.notify?b.notify():Muse.Assert.fail("Error calling selector function: "+b),false)throw b;}})})};
+
+</script>
+  <!-- RequireJS script -->
+  <script src="scripts/require.js?crc=7928878" type="text/javascript" async data-main="scripts/museconfig.js?crc=4286661555" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+   </body>
+</html>

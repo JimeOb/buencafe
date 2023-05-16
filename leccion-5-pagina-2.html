@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="nojs html" lang="es-ES">
+ <head>
+
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+  <meta name="generator" content="2018.1.0.386"/>
+  
+  <script type="text/javascript">
+   // Update the 'nojs'/'js' class on the html node
+document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
+
+// Check that all required assets are uploaded and up-to-date
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.watch.js", "jquery.scrolleffects.js", "require.js", "leccion-5-pagina-2.css"], "outOfDate":[]};
+</script>
+  
+  <link rel="shortcut icon" href="images/favicon.ico?crc=4209280601"/>
+  <title>Actividad - Lección 5</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=444006867"/>
+  <link rel="stylesheet" type="text/css" href="css/master_b-p_g_-maestra.css?crc=3921179497"/>
+  <link rel="stylesheet" type="text/css" href="css/leccion-5-pagina-2.css?crc=3872592253" id="pagesheet"/>
+  <link rel="stylesheet" type="text/css" href="actividades/actividades.css"/>
+
+  <script type="text/javascript" src="actividades/jquery.min.js"></script> 
+
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+
+
+        /*
+        $('#p1r1').click(function() {
+            $('#p1r2').attr("disabled", true);
+            $('#p1r2label').addClass('deshabilitar');
+            $('#p1r1label').addClass('correcto');
+            fin();
+        });
+
+        $('#p2r1').click(function() {
+            $('#p2r2').attr("disabled", true);
+            $('#p2r2label').addClass('deshabilitar');
+            $('#p2r1label').addClass('correcto');
+            fin();
+        });
+
+        $('#p3r2').click(function() {
+            $('#p3r1').attr("disabled", true);
+            $('#p3r1label').addClass('deshabilitar');
+            $('#p3r2label').addClass('correcto');
+            fin();
+        });
+
+        $('#p1r2').click(function() {
+            var id = $(this).attr('id');
+            $('#'+id+'label').addClass('incorrecto');
+            $('#'+id+'label').append(' X');
+            $(this).attr('checked', false);
+        });
+
+        $('#p2r2').click(function() {
+            var id = $(this).attr('id');
+            $('#'+id+'label').addClass('incorrecto');
+            $('#'+id+'label').append(' X');
+            $(this).attr('checked', false);
+        });
+
+        $('#p3r1').click(function() {
+            var id = $(this).attr('id');
+            $('#'+id+'label').addClass('incorrecto');
+            $('#'+id+'label').append(' X');
+            $(this).attr('checked', false);
+        });
+        */
+
+        $("#terminar").click(function() {
+
+            if ($("#p1r1").is(':checked') && $("#p2r1").is(':checked') && $("#p3r2").is(':checked') && $("#p4r2").is(':checked') && $("#p5r1").is(':checked') && $("#p6r1").is(':checked') && $("#p7r2").is(':checked'))
+            {
+                $("#continuarleccion").addClass('popupvisible');
+              setTimeout(function(){ $("#continuarleccion").removeClass('popupvisible'); window.location.href = "modulo-1.html#lecciones"; }, 2500);
+            }
+            else
+            {
+                $("#volver").addClass('popupvisible');
+                setTimeout(function(){ $("#volver").removeClass('popupvisible'); }, 2500);
+            }
+          });
+
+
+
+      });
+
+      function fin() {
+        if ($("#p1r1").is(':checked') && $("#p2r1").is(':checked') && $("#p3r2").is(':checked'))
+        {
+            alert("Felicitaciones!");
+        }
+      }
+    </script>
+
+   </head>
+ <body>
+
+  <div class="popupbg" id="continuarleccion">
+    <div class="popupcontainer">
+      <img src="actividades/conf2.png">
+    </div>
+  </div>
+
+  <div class="popupbg" id="volver">
+    <div class="popupcontainer">
+      <img src="actividades/conf3.png">
+    </div>
+  </div>
+
+  <div class="contenido-actividad"><!-- rasterized frame -->
+   <h1 class="titulo-actividad">Responde FALSO o VERDADERO a los siguientes enunciados</h1>
+   <p class="pregunta">1- Una de las ventajas del CIP es el ahorro de agua, y soluciones de sanitización.</p>
+    <div>
+      <input type="radio" id="p1r1" name="p1" value="p1r1">
+      <label for="p1r1" id="p1r1label">Verdadero</label>
+    </div>
+    <div>
+      <input type="radio" id="p1r2" name="p1" value="p1r2">
+      <label for="p1r2" id="p1r2label">Falso</label>
+    </div>
+
+
+    <p class="pregunta">2- Los estándares de Mantenimiento Autónomo de TPM y la Tabla de dosificación de sustancias DAPRO003, son documentos soporte del Programa de Limpieza y Desinfección.</p>
+    <div>
+      <input type="radio" id="p2r1" name="p2" value="p2r1">
+      <label for="p2r1" id="p2r1label">Verdadero</label>
+    </div>
+    <div>
+      <input type="radio" id="p2r2" name="p2" value="p2r2">
+      <label for="p2r2" id="p2r2label">Falso</label>
+    </div>
+
+
+    <p class="pregunta">3- La esterilización a diferencia de la desinfección, reduce la carga microbiana hasta niveles aceptables.</p>
+    <div>
+      <input type="radio" id="p3r1" name="p3" value="p3r1">
+      <label for="p3r1" id="p3r1label">Verdadero</label>
+    </div>
+    <div>
+      <input type="radio" id="p3r2" name="p3" value="p3r2">
+      <label for="p3r2" id="p3r2label">Falso</label>
+    </div>
+
+
+
+    <h3 style="font-size: 16px; font-weight: bold; margin: 40px 0 20px 0;">De acuerdo a lo establecido en el INRPO051  - Directrices para el uso de los guantes en Buencafé:</h3>
+
+    <p class="pregunta">4- Los guantes de caucho halogenado color naranja son para uso exclusivo de lavado de sanitarios.</p>
+    <div>
+      <input type="radio" id="p4r1" name="p4" value="p4r1">
+      <label for="p4r1" id="p4r1label">Verdadero</label>
+    </div>
+    <div>
+      <input type="radio" id="p4r2" name="p4" value="p4r2">
+      <label for="p4r2" id="p4r2label">Falso</label>
+    </div>
+
+
+    <p class="pregunta">5- Los guantes de Nitrilo color verde, se usan para Manipulación de sustancias químicas (verdadero).</p>
+    <div>
+      <input type="radio" id="p5r1" name="p5" value="p5r1">
+      <label for="p5r1" id="p5r1label">Verdadero</label>
+    </div>
+    <div>
+      <input type="radio" id="p5r2" name="p5" value="p5r2">
+      <label for="p5r2" id="p5r2label">Falso</label>
+    </div>
+
+
+    <p class="pregunta">6- Los guantes de caucho halogenado color Amarillo, son para operaciones con equipos que tenga contacto con el producto (verdadero).</p>
+    <div>
+      <input type="radio" id="p6r1" name="p6" value="p6r1">
+      <label for="p6r1" id="p6r1label">Verdadero</label>
+    </div>
+    <div>
+      <input type="radio" id="p6r2" name="p6" value="p6r2">
+      <label for="p6r2" id="p6r2label">Falso</label>
+    </div>
+
+
+    <p class="pregunta">7- Los guantes de nitrilo azul desechable, son usados para labores de aseo general (FALSO).</p>
+    <div>
+      <input type="radio" id="p7r1" name="p7" value="p7r1">
+      <label for="p7r1" id="p7r1label">Verdadero</label>
+    </div>
+    <div>
+      <input type="radio" id="p7r2" name="p7" value="p7r2">
+      <label for="p7r2" id="p7r2label">Falso</label>
+    </div>
+
+
+    <a href="#" id="terminar" class="btnterminar">Terminar</a>
+
+
+    
+
+
+
+  </div>
+
+  <div class="clearfix" id="page"><!-- group -->
+   <div class="clearfix grpelem" id="pu7904"><!-- group -->
+    <div class="browser_width" id="u7904-bw">
+     <div id="u7904"><!-- simple frame --></div>
+    </div>
+    <img id="u7905-4" alt="ACTIVIDAD LECCIÓN 5" width="579" height="60" src="images/u7905-4.png?crc=3854190067"/><!-- rasterized frame -->
+    <img id="u7906-4" alt="Limpieza y desinfección" width="541" height="27" src="images/u7906-4.png?crc=3909703640"/><!-- rasterized frame -->
+    <div class="browser_width" id="u1346-bw">
+     <div id="u1346"><!-- simple frame --></div>
+    </div>
+    <a class="nonblock nontext clip_frame" id="u1347" href="index.html"><!-- image --><img class="block" id="u1347_img" src="images/logo-header.png?crc=4287049649" alt="" width="121" height="37"/></a>
+   </div>
+   <div class="clearfix grpelem" id="pppu1349"><!-- column -->
+    <div class="clearfix colelem" id="ppu1349"><!-- group -->
+     <a class="nonblock nontext" id="u1349" href="index.html"><!-- state-based BG images --><img id="u1349_states" alt="Inicio" src="images/blank.gif?crc=4208392903"/></a>
+     <a class="nonblock nontext" id="u1350" href="modulos.html"><!-- state-based BG images --><img id="u1350_states" alt="Módulos" src="images/blank.gif?crc=4208392903"/></a>
+    </div>
+
+
+
+    <!--
+    <img class="ose_pre_init colelem" id="u7914-4" alt="Completa las frases con la opción correcta" width="894" height="42" src="images/u7914-4.png?crc=511965983"/>
+    <div class="clearfix colelem" id="pu7913">
+     <div class="grpelem" id="u7913"></div>
+     <div class="grpelem" id="u7917-4" data-mu-ie-matrix="progid:DXImageTransform.Microsoft.Matrix(M11=0.9205,M12=0.3907,M21=-0.3907,M22=0.9205,SizingMethod='auto expand')" data-mu-ie-matrix-dx="-20" data-mu-ie-matrix-dy="-113">
+      <img id="u7917-4_img" alt="IMAGEN DE REFERENCIA" width="626" height="232" src="images/u7917-4.png?crc=4226278382"/>
+     </div>
+    </div>
+    -->
+
+    <a class="nonblock nontext colelem" id="u7915" href="modulo-1.html#lecciones" style="margin-top:140px;"><!-- state-based BG images --><img id="u7915_states" alt="Ver más lecciones" src="images/blank.gif?crc=4208392903"/></a>
+    <div class="colelem" id="u7916"><!-- simple frame --></div>
+    <div class="browser_width colelem" id="u1362-bw">
+     <div id="u1362"><!-- group -->
+      <div class="clearfix" id="u1362_align_to_page">
+       <a class="nonblock nontext clip_frame grpelem" id="u1363" href="index.html"><!-- image --><img class="block" id="u1363_img" src="images/logo-header.png?crc=4287049649" alt="" width="110" height="34"/></a>
+       <div class="grpelem" id="u1367"><!-- simple frame --></div>
+       <img class="grpelem" id="u9396-4" alt="CURSO VIRTUAL DE BUENAS PRÁCTICAS DE MANUFACTURA (BPM) E INOCUIDAD" width="426" height="32" src="images/u9396-4.png?crc=276274111"/><!-- rasterized frame -->
+       <img class="grpelem" id="u9212-6" alt="Elaborado por BW agencia digital" width="99" height="27" src="images/u9212-6.png?crc=299181344"/><!-- rasterized frame -->
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="preload_images">
+   <img class="preload" src="images/u1349_states-r.png?crc=4181773096" alt=""/>
+   <img class="preload" src="images/u1349_states-a.png?crc=426512644" alt=""/>
+   <img class="preload" src="images/u1350_states-r.png?crc=3965337562" alt=""/>
+   <img class="preload" src="images/u1350_states-a.png?crc=3848403389" alt=""/>
+   <img class="preload" src="images/u7915_states-r.png?crc=383879702" alt=""/>
+  </div>
+  <!-- Other scripts -->
+  <script type="text/javascript">
+   // Decide whether to suppress missing file error or not based on preference setting
+var suppressMissingFileError = false
+</script>
+  <script type="text/javascript">
+   window.Muse.assets.check=function(c){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},d=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
+16);return 0},f=function(f){for(var g=document.getElementsByTagName("link"),j=0;j<g.length;j++)if("text/css"==g[j].type){var l=(g[j].href||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);if(!l||!l[1]||!l[2])break;b[l[1]]=l[2]}g=document.createElement("div");g.className="version";g.style.cssText="display:none; width:1px; height:1px;";document.getElementsByTagName("body")[0].appendChild(g);for(j=0;j<Muse.assets.required.length;){var l=Muse.assets.required[j],k=l.match(/([\w\-\.]+)\.(\w+)$/),i=k&&k[1]?
+k[1]:null,k=k&&k[2]?k[2]:null;switch(k.toLowerCase()){case "css":i=i.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");g.className+=" "+i;i=a(d(g,"color"));k=a(d(g,"backgroundColor"));i!=0||k!=0?(Muse.assets.required.splice(j,1),"undefined"!=typeof b[l]&&(i!=b[l]>>>24||k!=(b[l]&16777215))&&Muse.assets.outOfDate.push(l)):j++;g.className="version";break;case "js":j++;break;default:throw Error("Unsupported file type: "+k);}}c?c().jquery!="1.8.3"&&Muse.assets.outOfDate.push("jquery-1.8.3.min.js"):Muse.assets.required.push("jquery-1.8.3.min.js");
+g.parentNode.removeChild(g);if(Muse.assets.outOfDate.length||Muse.assets.required.length)g="Puede que determinados archivos falten en el servidor o sean incorrectos. Limpie la cache del navegador e inténtelo de nuevo. Si el problema persiste, póngase en contacto con el administrador del sitio web.",f&&Muse.assets.outOfDate.length&&(g+="\nOut of date: "+Muse.assets.outOfDate.join(",")),f&&Muse.assets.required.length&&(g+="\nMissing: "+Muse.assets.required.join(",")),suppressMissingFileError?(g+="\nUse SuppressMissingFileError key in AppPrefs.xml to show missing file error pop up.",console.log(g)):alert(g)};location&&location.search&&location.search.match&&location.search.match(/muse_debug/gi)?
+setTimeout(function(){f(!0)},5E3):f()}};
+var muse_init=function(){require.config({baseUrl:""});require(["jquery","museutils","whatinput","jquery.watch","jquery.scrolleffects"],function(c){var $ = c;$(document).ready(function(){try{
+window.Muse.assets.check($);/* body */
+Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
+Muse.Utils.prepHyperlinks(true);/* body */
+Muse.Utils.resizeHeight('.browser_width');/* resize height */
+Muse.Utils.requestAnimationFrame(function() { $('body').addClass('initialized'); });/* mark body as initialized */
+Muse.Utils.makeButtonsVisibleAfterSettingMinWidth();/* body */
+$('#u7914-4').registerOpacityScrollEffect([{"in":[-Infinity,-307.25],"opacity":0,"fade":50},{"opacity":100,"in":[-307.25,-307.25]},{"in":[-307.25,Infinity],"opacity":100,"fade":50}]);/* scroll effect */
+Muse.Utils.showWidgetsWhenReady();/* body */
+Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
+}catch(b){if(b&&"function"==typeof b.notify?b.notify():Muse.Assert.fail("Error calling selector function: "+b),false)throw b;}})})};
+
+</script>
+  <!-- RequireJS script -->
+  <script src="scripts/require.js?crc=7928878" type="text/javascript" async data-main="scripts/museconfig.js?crc=4286661555" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+   </body>
+</html>
